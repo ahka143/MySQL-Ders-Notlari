@@ -64,6 +64,16 @@ select * from personel where isim between 'Derya Soylu' and  'Yavuz Bal';
 select * from personel where id=1001 or id=1002 or id=1004;
 select * from personel where id in(1001,1002,1004);
 
+-- SORU08: Maaşı sadece 70000 100000 olan personeli listele
+
+select * from personel where maas in(70000,100000);
+-- in
+-- birden fazla ifade ile tanimlayabileceğimiz durumlarda kullailir.
+
+-- or: belirtilen şartlar gerçekleşirse kayit listeler
+
+-- and:
+-- yarin 3 sinav
 
 
 
