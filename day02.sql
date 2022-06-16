@@ -171,6 +171,7 @@ select * from kelimeler where regexp_like (kelime,'oo');
 -- SORU24: içerisinde en az 4 adet oooo barıdıran kelimelerin tüm bilgilerini listeleyiniz.
 select * from kelimeler where regexp_like (kelime,'oooo');
 -- SORU25: ilk harfi s veya b , 3. harfi l olan ve 5 harfli olan kelimelerin küçük harfe dikkat ederek listeleyiniz.
+select * from kelimeler where regexp_like (kelime,'[s|b][a-z]l[a-z][a-z]');
 
 
 
