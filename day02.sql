@@ -153,13 +153,21 @@ select * from kelimeler where regexp_like(kelime,'t$|m');
 select * from kelimeler where regexp_like (kelime, 'h[a-z,0-9]t','c');
 
 -- SORU19A: h ile başlayıp t ile biten 4 harfli kelimeleri (h ile t küçük harfli olanlari) listeleyeniz
--- SORU20: İlk harfi h, son harfi t olup 2.harfi a veya i olan 3 harfli kelimelerin tüm bilgilerini sorgulayalım.
--- SORU21: İçinde m veya i veya e olan kelimelerin tüm bilgilerini listeleyiniz.
-select * from kelimeler where regexp_like(kelime, 'i|e|m');
+select * from kelimeler where regexp_like (kelime, 'h[a-z,0-9][a-z,0-9]t','c');
 
-select * from kelimeler where regexp_like(kelime, '[mie]');
+-- SORU20: İlk harfi h, son harfi t olup 2.harfi a veya i olan 3 harfli kelimelerin tüm bilgilerini sorgulayalım.
+select * from kelimeler where regexp_like (kelime,'h[a|i]t');
+
+-- SORU21: İçinde m veya i veya e olan kelimelerin tüm bilgilerini listeleyiniz.
+select * from kelimeler where regexp_like (kelime,'m|i|e');
+
 -- SORU22: a veya s ile başlayan kelimelerin tüm bilgilerini listeleyiniz.
+select * from kelimeler where regexp_like (kelime,'^a|^s');
+
 -- SORU23: içerisinde en az 2 adet oo barıdıran kelimelerin tüm bilgilerini listeleyiniz.
+
+select * from kelimeler where regexp_like (kelime,'h[a|i]t');
+
 -- SORU24: içerisinde en az 4 adet oooo barıdıran kelimelerin tüm bilgilerini listeleyiniz.
 -- SORU25: ilk harfi s veya b , 3. harfi l olan ve 5 harfli olan kelimelerin küçük harfe dikkat ederek listeleyiniz.
 
