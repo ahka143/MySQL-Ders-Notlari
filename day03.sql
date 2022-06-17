@@ -53,7 +53,7 @@ sehir VARCHAR(15),
 CONSTRAINT id_clsnlr FOREIGN KEY(adres_id) REFERENCES calisanlar(id) 
 -- (solda tablo seçiliyken üstteki info dan ismi kontrol edebilirsin)
 );
-   
+
 INSERT INTO adresler VALUES('10003','Mutlu Sok', '40.Cad.','IST');
 INSERT INTO adresler VALUES('10003','Can Sok', '50.Cad.','Ankara');
 INSERT INTO adresler VALUES('10002','Ağa Sok', '30.Cad.','Antep');
