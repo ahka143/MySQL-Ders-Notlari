@@ -48,10 +48,9 @@ select * from ogrenciler;
 /* =============================================================================
          Seçerek silmek için WHERE Anahtar kelimesi kullanılabilir. 
 ===============================================================================*/     
-
+SET SQL_SAFE_UPDATES = 0;
 -- SORU1: id'si 124 olan ogrenciyi siliniz.
-
- 
+delete from ogrenciler where id=124;
  
 -- SORU2: ismi Kemal Yasa olan satırını siliniz.
 
