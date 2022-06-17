@@ -13,7 +13,7 @@
 -- ========================================================================================*/
  use batch59;
  
- create database batch59;
+
  
  CREATE TABLE calisanlar
 (
@@ -37,7 +37,8 @@ INSERT INTO calisanlar VALUES('', 'osman can', 2000, '2018-04-14');
 INSERT INTO calisanlar VALUES('', 'veli can', 6000, '2018-04-14');
 INSERT INTO calisanlar VALUES( '10002', 'ayse Yılmaz' ,12000, '2018-04-14');
 INSERT INTO calisanlar VALUES( null, 'filiz ' ,12000, '2018-04-14');
-     
+SET SQL_SAFE_UPDATES = 0;
+     delete from calisanlar;
 select * from calisanlar;
      
      
