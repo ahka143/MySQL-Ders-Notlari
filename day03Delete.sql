@@ -53,28 +53,28 @@ SET SQL_SAFE_UPDATES = 0;
 delete from ogrenciler where id=124;
  
 -- SORU2: ismi Kemal Yasa olan satırını siliniz.
-
+delete from ogrenciler where isim='Kemal Yasa';
      
 
 -- SORU3: ismi Nesibe Yilmaz veya Mustafa Bak olan kayıtları silelim.
-
-         
+delete from ogrenciler where isim in ('Nesibe Yilmaz','Mustafa Bak');
+         select * from ogrenciler;
 
 -- SORU4: İsmi Ali Can ve id'si 123 olan kaydı siliniz.
 
-  
+  delete from ogrenciler where isim="Ali Can" and id=123;
 
 -- SORU5: id 'si 126'dan büyük olan kayıtları silelim.
 
-
+delete from ogrenciler where id>126;
     
 -- SORU6: id'si 123, 125 veya 126 olanları silelim.
 
-    
+    delete from ogrenciler where id in (123,125,126);
     
 -- SORU7:  TABLODAKİ TÜM KAYITLARI SİLELİM..
 
-   
+   delete from ogrenciler;
 
 
 CREATE TABLE ogrenciler
