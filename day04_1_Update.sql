@@ -38,7 +38,7 @@ SELECT * FROM urunler;
 
 -- SORU1: İki tabloyu birleştirerek listeleyiniz.
 
-
+SELECT * FROM tedarikciler,urunler Where tedarikciler.vergi_no=urunler.ted_vergino;
 
 -- UPDATE - SET     
 -- SYNTAX
@@ -48,8 +48,8 @@ SELECT * FROM urunler;
 
 
 -- SORU2: vergi_no’su 102 olan tedarikcinin (firma) ismini 'Vestel' olarak güncelleyeniz.
-
-
+update tedarikciler set firma_ismi="Vestel" where vergi_no=102;
+select* from tedarikciler;
 
 --  SORU3: Tedarikciler tablosundaki tüm firma isimlerini 'CASPER' olarak güncelleyeniz. 
 
