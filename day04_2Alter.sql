@@ -28,24 +28,25 @@ INSERT INTO personel VALUES(456715012, 'Veli Sahin', 'Ankara', 4500, 'Ford');
 select * from personel;
    
 -- SORU1: personel tablosuna ulke_isim adinda ve default degeri 'Turkiye' olan yeni bir sutun ekleyiniz.
-
+alter table personel add ulke_ismi varchar(20) default ('Turkiye');
 
 
 -- SORU2: personel tablosuna cinsiyet Varchar(20) ve yas int seklinde yeni sutunlar ekleyiniz.
-
+alter table personel add column (cinsiyet char default('E') , yas int default(18) );
  
     
 -- SORU3: personel tablosundan sirket sutununu siliniz.
-
-
+alter table personel drop column sirket;
+select * from personel;
  
 -- SORU4: personel tablosundaki ulke_isim sutununun adini ulke_adi olarak degistiriniz.
-
+alter table personel rename column ulke_ismi to ulke_adi;
 
 
 -- SORU5: personel tablosunun adini isciler olarak degistiriniz.
-
+rename table personel to isciler;
+select * from isciler;
 
 
 -- SORU6: isciler tablosundaki ulke_adi sutununa NOT NULL kisitlamasi ekleyiniz ve veri tipini VARCHAR(30) olarak değiştiriniz. 
-
+alter table isciler modify column ulke_adi varchar(30) not null;
