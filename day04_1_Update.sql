@@ -77,7 +77,14 @@ update urunler set urun_id=urun_id+ted_vergino;
 -- SORU9: urunler tablosundan Ali Bak’in aldigi urunun ismini, tedarikci  tablosunda irtibat_ismi 
 -- 'Adam Eve' olan firmanın ismi (firma_ismi) ile degistiriniz.
 -- 9. soruyu çözmeden önce, tabloları eski haline getireceğiz.
+drop table tedarikciler;
+drop table urunler;
 
-
+update urunler set urun_isim=(select firma_ismi from tedarikciler where irtibat_ismi='Adam Eve') where musteri_isim='Ali Bak';
+select * from urunler;
+select * from tedarikciler;
 
  -- SORU10: Laptop satin alan musterilerin ismini, firma_ismi Apple’in irtibat_isim'i ile degistirin.
+ 
+ update urunler set musteri_isim=(select irtibat_ismi from tedarikciler where firma_ismi='Apple') where urun_isim='Laptop';
+ 
