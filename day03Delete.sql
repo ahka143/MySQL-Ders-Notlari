@@ -88,16 +88,17 @@ yazili_notu int
 INSERT INTO ogrenciler VALUES(123, 'Ali Can', 'Hasan',75);
 INSERT INTO ogrenciler VALUES(124, 'Merve Gul', 'Ayse',85);
 INSERT INTO ogrenciler VALUES(125, 'Kemal Yasa', 'Hasan',85);
+savepoint abc;
 INSERT INTO ogrenciler VALUES(126, 'Nesibe Yilmaz', 'Ayse',95);
 INSERT INTO ogrenciler VALUES(127, 'Mustafa Bak', 'Can',99);
 INSERT INTO ogrenciler VALUES(127, 'Mustafa Bak', 'Ali', 99);
-savepoint abc;
+
 
 -- savepoint komutuyla tabloları yanlışlıkla silinmeye karşı korumaya almış oluyoruz 
-
--- savepoint sikintisi varsa -> SET autocommit=0; 
+-- save point hangi satira konursa oraya kadar olan kisim rollback ile geri getirilebilir
+-- savepoint sikintisi varsa ->SET autocommit=0; 
 -- ayarlar sql execution auto commit tiki kaldr
-
+ SET autocommit=0; 
 select * from ogrenciler;
 
 delete from ogrenciler;
