@@ -52,12 +52,12 @@ update tedarikciler set firma_ismi="Vestel" where vergi_no=102;
 select* from tedarikciler;
 
 --  SORU3: Tedarikciler tablosundaki tüm firma isimlerini 'CASPER' olarak güncelleyeniz. 
-
-
+update tedarikciler set firma_ismi = "casper";
+select* from tedarikciler;
 
 -- SORU4: vergi_no’su 101 olan tedarikcinin ismini 'casper' ve irtibat_ismi’ni 'Ali Veli' olarak güncelleyiniz.
-
- 
+update tedarikciler set firma_ismi='casper' , irtibat_ismi='Ali Veli' WHERE vergi_no=101;
+ select* from tedarikciler;
     
 -- SORU5: firma_ismi casper olan tedarikcinin irtibat_ismini 'Bill Gates' olarak güncelleyiniz.
 
