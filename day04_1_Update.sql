@@ -61,18 +61,18 @@ update tedarikciler set firma_ismi='casper' , irtibat_ismi='Ali Veli' WHERE verg
     
 -- SORU5: firma_ismi casper olan tedarikcinin irtibat_ismini 'Bill Gates' olarak güncelleyiniz.
 
-
+update tedarikciler set irtibat_ismi='Bill Gates' where firma_ismi='casper';
 
 -- SORU6: urunler tablosundaki 'Phone' değerlerini 'Telefon' olarak güncelleyiniz.
-
-
+update urunler set urun_isim='Telefon' where urun_isim='Phone';
+select * from urunler;
 
 -- SORU7: urunler tablosundaki urun_id değeri 1004'ten büyük olanların urun_id 1 arttrn.
-
+update urunler set urun_id=urun_id+1 where urun_id>1004;
 
 -- SORU8: urunler tablosundaki tüm ürünlerin urun_id değerini ted_vergino sutun değerleri ile toplayarak güncelleyiniz.
 
-
+update urunler set urun_id=urun_id+ted_vergino;
 
 -- SORU9: urunler tablosundan Ali Bak’in aldigi urunun ismini, tedarikci  tablosunda irtibat_ismi 
 -- 'Adam Eve' olan firmanın ismi (firma_ismi) ile degistiriniz.
