@@ -50,3 +50,7 @@ select * from isciler;
 
 -- SORU6: isciler tablosundaki ulke_adi sutununa NOT NULL kisitlamasi ekleyiniz ve veri tipini VARCHAR(30) olarak değiştiriniz. 
 alter table isciler modify column ulke_adi varchar(30) not null;
+
+-- maas 3000'e esit ve kucuk olan girilmesin.
+
+alter table isciler add constraint check( maas>=3000);
