@@ -35,19 +35,19 @@ INSERT INTO kisiler VALUES (12, 665458901, 'Veli','Yildiz',8000,'Istanbul');
 select * from kisiler;
     
 -- SORU1: kisiler tablosunu adres'e göre sıralayarak sorgulayınız.
-
- 
+select * from kisiler order by adres;
+select * from kisiler order by adres desc;
 -- SORU2: kisiler tablosunu maaşı büyükten küçüğe göre sırala.
-
+select * from kisiler order by maas desc;
 
 
 -- SORU3: ismi Mine olanları, maas a göre AZALAN sırada sorgulayınız.
-
+select * from kisiler where isim='Mine' order by maas desc;
 
 
 -- SORU4: soyismi 'i Bulut olanları maas sıralı olarak sorgulayınız.
 
-
+select * from kisiler where soyisim='Bulut' order by maas;
 
 -- ***************************** LİMİT **********************************
 
