@@ -73,5 +73,5 @@ select marka_isim, calisan_sayisi, (select  max(maas) from calisanlar where mark
 
  
 -- SORU7: Her markanin id’sini, ismini ve toplam kaç şehirde bulunduğunu listeleyen bir SORGU yaziniz.
-select marka_id marka_isim, (select count(sehir) from calisanlar where isyeri=marka_isim) as sehirler_toplami from markalar;
+select marka_id, marka_isim, (select count(sehir) from calisanlar where isyeri=marka_isim) as sehirler_toplami from markalar;
 -- count(sehir) sehirleri sayar
