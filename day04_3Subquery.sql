@@ -59,7 +59,7 @@ select marka_id , calisan_sayisi from markalar where marka_isim in(select isyeri
 ==============================================================================*/   
       
 -- SORU4: Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin toplam maaşini listeleyen bir Sorgu yaziniz.
-
+select marka_isim, calisan_sayisi , (select sum(maas) from calisanlar where calisanlar.isyeri=markalar.marka_isim) from markalar;
 
  
 -- SORU5: Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin ortalama maaşini listeleyen bir Sorgu yaziniz.
