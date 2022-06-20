@@ -69,9 +69,9 @@ select marka_isim, calisan_sayisi, (select round(avg(maas),2) from calisanlar wh
 -- SORU6: Her markanin ismini, calisan sayisini ve o markaya ait calisanlarin maksimum ve minumum maaşini listeleyen bir Sorgu yaziniz.
 select marka_isim, calisan_sayisi, (select  min(maas) from calisanlar where marka_isim=isyeri) as min_maas from markalar;
 -- max ve min maas bir arada olsun
-select max(maas), min(maas) from calisanlar where markalar.marka_isim=calisanlar.isyeri;
+select marka_isim, calisan_sayisi, (select  max(maas) from calisanlar where marka_isim=isyeri) as max_maas , (select  min(maas) from calisanlar where marka_isim=isyeri) as min_maas from markalar;
 
  
 -- SORU7: Her markanin id’sini, ismini ve toplam kaç şehirde bulunduğunu listeleyen bir SORGU yaziniz.
-
+select marka_id marka_isim, (select count(sehir) from calisanlar where isyeri=marka_isim) as sehirler_toplami from markalar;
 -- count(sehir) sehirleri sayar
