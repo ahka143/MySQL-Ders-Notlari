@@ -60,7 +60,7 @@ select * from nisan;
   URUN_ID’lerini ve aynı zamanda bu ürünleri MART ayında alan
   MUSTERI_ISIM 'lerini listeleyen bir sorgu yazınız. 
  -----------------------------------------------------------------------------*/        
-
+select urun_id ,musteri_isim from mart where exists(select musteri_isim from nisan where mart.urun_id=nisan.urun_id);
     
 /* -----------------------------------------------------------------------------
 SORU2: Her iki ayda birden satılan ürünlerin URUN_ISIM'lerini ve bu ürünleri
