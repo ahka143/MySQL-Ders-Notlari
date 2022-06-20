@@ -99,7 +99,7 @@ delete from adresler where adres_id= 10002; -- child
 
 CREATE TABLE talebeler
 (
-id CHAR(3) primary key,  
+ogrenci_no CHAR(3) primary key,  
 isim VARCHAR(50),
 veli_isim VARCHAR(50),
 yazili_notu int
@@ -114,10 +114,10 @@ INSERT INTO talebeler VALUES(127, 'Mustafa Bak', 'Can',99);
 select * from talebeler;
 
 CREATE TABLE notlar
-( talebe_id char(3),
+( talebe_ogrenci_no char(3),
 ders_adi varchar(30),
 yazili_notu int,
-CONSTRAINT notlar_fk FOREIGN KEY (talebe_id) REFERENCES talebeler(id)
+CONSTRAINT notlar_fk FOREIGN KEY (talebe_ogrenci_no) REFERENCES talebeler(ogrenci_no)
 on delete cascade);
 
 -- on delete cascade sayesinde
@@ -129,7 +129,8 @@ INSERT INTO notlar VALUES ('123','kimya',75);
 INSERT INTO notlar VALUES ('124', 'fizik',65);
 INSERT INTO notlar VALUES ('125', 'tarih',90);
 INSERT INTO notlar VALUES ('126', 'Matematik',90); 
-   
+INSERT INTO notlar VALUES ('123','edebiyat',75);
+   select * from notlar;
 -- FK ile birleştirilen tablolardaki tüm verileri çekmek için
 -- JOIN İşlemi yapmak gerekir. Bu konuyu sonra göreceğiz.
 SELECT * FROM talebeler, notlar WHERE talebeler.id = notlar.talebe_id;
