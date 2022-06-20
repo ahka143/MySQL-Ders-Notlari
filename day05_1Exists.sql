@@ -107,18 +107,19 @@ select * from insanlar;
 
 -- SORU4: isimi null olanları sorgula
 select * from insanlar where isim is null;
-        
+        SET SQL_SAFE_UPDATES = 0;
 
 -- SORU5: isim null olmayanlar
 
 select * from insanlar where isim is not null;
         
 -- SORU6: isim 'i NULL olan kişilerin isim'ine NO NAME atayınız.
-
-
+update insanlar set isim = 'NO NAME' where isim is null;
+select * from insanlar;
 
 -- SORU7: tabloyu eski haline döndürün
-
+update insanlar set isim = null where isim ='NO NAME';
+select * from insanlar;
 
 /* 
 SORU7:   isim 'i NULL olanlara 'Henuz isim girilmedi'
