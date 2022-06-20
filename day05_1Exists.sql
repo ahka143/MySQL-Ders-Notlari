@@ -72,7 +72,7 @@ select urun_isim, musteri_isim from nisan where exists (select urun_isim from ma
 /* SORU3: Her iki ayda ortak satilmayan ürünlerin URUN_ISIM'lerini ve   bu ürünleri
   NİSAN ayında satın alan MUSTERI_ISIM'lerini listeleyen bir sorgu yazınız. 
  -----------------------------------------------------------------------------*/
-
+select urun_isim,musteri_isim from nisan where not exists(select urun_isim from mart where  mart.urun_isim=nisan.urun_isim );
 
 
 
@@ -106,18 +106,18 @@ INSERT INTO insanlar (ssn) VALUES('999111222');
 select * from insanlar;
 
 -- SORU4: isimi null olanları sorgula
-
+select * from insanlar where isim is null;
         
 
 -- SORU5: isim null olmayanlar
 
-
+select * from insanlar where isim is not null;
         
 -- SORU6: isim 'i NULL olan kişilerin isim'ine NO NAME atayınız.
 
 
 
--- SORU6: tabloyu eski haline döndürün
+-- SORU7: tabloyu eski haline döndürün
 
 
 /* 
