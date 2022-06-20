@@ -37,16 +37,16 @@ select * from markalar;
     
 
 -- SORU1: calisan sayisi 15.000’den cok olan markalarin isimlerini ve bu markada calisanlarin isimlerini ve maaşlarini listeleyin.
-
+select isim,isyeri from calisanlar where isyeri in (select marka_isim from markalar where calisan_sayisi>15000);
 
 
 -- SORU2: marka_id’si 101’den büyük olan marka çalişanlarinin isim, maaş ve şehirlerini listeleyiniz.
-
+select isim,maas,sehir from calisanlar where  isyeri in(select marka_isim from markalar where marka_id>101);
 
 
 -- SORU3: Ankara’da calisani olan markalarin marka id'lerini ve calisan sayilarini listeleyiniz.
 
-
+select marka_id , calisan_sayisi from markalar where marka_isim in(select isyeri from calisanlar where sehir='Ankara' );
 
 
 
