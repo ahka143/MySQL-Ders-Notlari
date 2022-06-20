@@ -54,14 +54,21 @@ select * from kisiler where soyisim='Bulut' order by maas;
 select * from kisiler;
 
 -- listeden ilk 10 veriyi getir
-
+select * from kisiler limit 10; 
 
 -- 10. veriden sonraki 2 veriyi al (11 ve 12)
 
+select * from kisiler limit 10,12;
+select * from kisiler limit 10,2;
 
 
 -- MAAŞ'ı en yüksek 3 kişinin bilgilerini listeleyen sorguyu yazınız.
-
+select * from kisiler order by maas desc limit 3;
 
 
 -- MAAŞ'a göre sıralamada 4. 5.  6. kişilerin bilgilerini listeleyen sorguyu yazınız.
+
+select * from kisiler order by maas desc limit 3,3;
+
+-- MAAŞ'a göre sıralamada 7. 8.  9. kişilerin bilgilerini listeleyen sorguyu yazınız.
+select * from kisiler order by maas desc limit 6,3;
