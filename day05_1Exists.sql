@@ -128,3 +128,9 @@ SORU7:   isim 'i NULL olanlara 'Henuz isim girilmedi'
             çoklu değişimde ve  WHERE isim IS NULL or adres is null....; 
             gibi ifade yazmamak için. coalesce=birleşmek
 */
+
+update insanlar set isim=coalesce('henuz isim girilmedi'), adres=coalesce('henuz adres girilmedi'), ssn=coalesce('no ssn') 
+where isim is null or adres is null or ssn is null; 
+
+select * from insanlar;
+
