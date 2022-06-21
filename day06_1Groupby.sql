@@ -48,3 +48,5 @@ select urun_adi, max(urun_miktari), min(urun_miktari) from manav group by  urun_
 
  
 -- SORU4: kisi ismine ve urun adına göre satılan ürünlerin toplamını gruplandıran ve isime göre ters sırasıda listeyen sorguyu yazınız.
+
+select isim, urun_adi , sum(urun_miktari) as urun_toplam from manav group by isim,urun_adi order by isim desc;
