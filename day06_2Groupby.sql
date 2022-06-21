@@ -71,11 +71,15 @@ group by cinsiyet;
 
 
 -- SORU05: Personelin, ulkelere göre ve şehirlere göre gruplayarak sorgulayın
-select 
+select ad,soyad,sehir,ulke
+from personel
+group by sehir,ulke ;
 
 
 -- SORU06: Personelin, ulkelere göre ve şehirler göre calışan sayısını sorgulayın.
-
+select sehir,ulke, count(ad)
+from personel
+group by sehir,ulke ;
 
 
 -- SORU07: Her ulke için bay ve bayan çalışan sayısı ve yaş ortalamasını sorgulayınız.
