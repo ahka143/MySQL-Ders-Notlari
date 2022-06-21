@@ -53,23 +53,25 @@ select * from personel;
 
 -- SORU01: personelin calıştığı ülkeleri listeleyiniz
 
-
+select ulke from personel ;
 
 
 -- SORU02: Ülkelere göre ortalama maaşları listeleyiniz
-
+select ulke, round(avg(maas)) from personel group by ulke;
 
 
 -- SORU03: Her ülkede kaç çalışan olduğunu sorgulayınız.
-
+select ulke, count(*) as calisan_sayisi from personel group by ulke;
 
 
 -- SORU04: Maas ortalamasını bayanlar ve baylar olarak sorgulayınız
-
+select cinsiyet, round(avg(maas))
+from personel
+group by cinsiyet;
 
 
 -- SORU05: Personelin, ulkelere göre ve şehirlere göre gruplayarak sorgulayın
-
+select 
 
 
 -- SORU06: Personelin, ulkelere göre ve şehirler göre calışan sayısını sorgulayın.
