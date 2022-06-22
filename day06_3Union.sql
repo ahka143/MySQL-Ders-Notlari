@@ -58,8 +58,9 @@ select sehir, maas from personel where maas>5000;
   personelin maaslarini yüksekten alçaga dogru siralayarak bir tabloda gosteren 
   sorguyu yaziniz.    
 ------------------------------------------------------------------------------*/  
-
-
+select isim as isim_sehir , maas from personel where isim ='Mehmet Ozturk'
+union
+select sehir as isim_sehir  ,maas from personel where sehir='Istanbul' order by maas desc;
 
 
 
