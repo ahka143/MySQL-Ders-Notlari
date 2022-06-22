@@ -53,7 +53,7 @@ select * from personel;
 
 -- SORU01: personelin calıştığı ülkeleri listeleyiniz
 
-select ulke from personel ;
+select  ad, soyad ,ulke   from personel group by ulke ;
 
 
 -- SORU02: Ülkelere göre ortalama maaşları listeleyiniz
@@ -65,12 +65,12 @@ select ulke, count(*) as calisan_sayisi from personel group by ulke;
 
 
 -- SORU04: Maas ortalamasını bayanlar ve baylar olarak sorgulayınız
-select cinsiyet, round(avg(maas))
+select cinsiyet, round(avg(maas)) as ortalama_maas
 from personel
 group by cinsiyet;
 
 
--- SORU05: Personelin, ulkelere göre ve şehirlere göre gruplayarak sorgulayın
+-- SORU05: Personeli, ulkelere göre ve şehirlere göre gruplayarak sorgulayın
 select ad,soyad,sehir,ulke
 from personel
 group by sehir,ulke ;
@@ -83,17 +83,26 @@ group by sehir,ulke ;
 
 
 -- SORU07: Her ulke için bay ve bayan çalışan sayısı ve yaş ortalamasını sorgulayınız.
+select ulke ,cinsiyet, count(*) as calisan_sayisi, round(avg(maas)) as ortalama_maas 
+from personel group by ulke,cinsiyet;
 
 
 
 -- SORU08: Her ulke için bay ve bayan çalışan sayısı ve yaş ortalamasını  ve maası 30000 den büyük olanları sorgulayınız.
-
+select ulke,cinsiyet, count(*) as calisan_sayisi, round(avg(yas)) as yas_ortalamasi 
+from personel 
+where maas>30000 
+group by ulke, cinsiyet;
 
 
 
 -- SORU09: Her ulke için; bay ve bayan çalışan sayısı, yaş ortalamasını, maaşı 30000 den büyük olanları
 -- ve ortalama yaşı büyükten küçüğe doğru sıralayınız.
-
+select ulke,cinsiyet, count(*) as calisan_sayisi, round(avg(yas)) as yas_ortalamasi 
+from personel 
+where maas>30000 
+group by ulke, cinsiyet
+order by yas_ortalamasi desc;
 
 
 
@@ -117,7 +126,7 @@ INSERT INTO manav VALUES( 'Ali', 'Armut', 2);
 INSERT INTO manav VALUES( 'Veli', 'Elma', 3);
 INSERT INTO manav VALUES( 'Ayse', 'Uzum', 4);
 INSERT INTO manav VALUES( 'Ali', null, 2);
-
+select *from manav;
 
 -- SORU10: kisi ismine ve urun adına göre satılan ürünlerin toplamını
 --  gruplandıran ve isime göre ters sırasıda listeyen sorguyu yazınız.
