@@ -67,7 +67,11 @@ select sehir as isim_sehir  ,maas from personel where sehir='Istanbul' order by 
 /* -----------------------------------------------------------------------------
   SORU3: Honda,Ford ve Tofas’ta calisan  personelin ismini listeleyin
 ------------------------------------------------------------------------------*/  
-
+select isim, sirket from personel  where sirket='Honda'
+union all
+select isim, sirket from personel  where sirket='Ford'
+union all
+select isim, sirket from personel  where sirket='Tofas';
 
 
 
@@ -76,6 +80,9 @@ select sehir as isim_sehir  ,maas from personel where sehir='Istanbul' order by 
   SORU4: 5000’den az maas alanlarin bilgileri ile, arti Honda calisani olmayanlarin bilgilerini
  alt alta listeleyen bir sorgu yaziniz. 
 ------------------------------------------------------------------------------*/ 
+select isim,maas from personel where maas<5000
+union all
+select isim ,sirket from personel where  sirket<>'Honda';
 
 
 
