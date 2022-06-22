@@ -180,7 +180,7 @@ select distinct urun_adi from manav;
 select   count(distinct urun_adi) from manav;
 
 -- satılan meyve + isimleri farklı olanları listeleyen sorgu
-
+select distinct urun_adi, isim from manav;
 
 
 -- satılan meyvelerin urun_miktarlarının benzersiz olanlarının toplamlarını listeleyen sorgu
