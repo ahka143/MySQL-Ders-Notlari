@@ -80,9 +80,9 @@ select isim, sirket from personel  where sirket='Tofas';
   SORU4: 5000’den az maas alanlarin bilgileri ile, arti Honda calisani olmayanlarin bilgilerini
  alt alta listeleyen bir sorgu yaziniz. 
 ------------------------------------------------------------------------------*/ 
-select isim,maas from personel where maas<5000
-union all
-select isim ,sirket from personel where  sirket<>'Honda';
+select isim,maas ,sirket from personel where maas<5000
+union 
+select isim,maas ,sirket  from personel where  sirket<>'Honda';
 
 
 
@@ -94,7 +94,9 @@ select isim ,sirket from personel where  sirket<>'Honda';
   sehirlerini listeleyen sorguyu yaziniz.
 ------------------------------------------------------------------------------*/
 
-
+select isim,sehir from personel where isim='Mehmet Ozturk'
+union
+select isim, sehir from personel where sehir <> 'Istanbul';
 
 
 
@@ -125,8 +127,9 @@ select * from personel_bilgi;
   maasini, personel_bilgi tablosundan da (id ilk 3 hanesiyle kaydolmuş=123)
   tel ve cocuk sayisini yazdirin  
 ------------------------------------------------------------------------------*/    
-
-
+select sehir,maas from personel where id='123456789' 
+union
+select tel,cocuk_sayisi from personel_bilgi where id='123';  
 
 
 
@@ -134,7 +137,9 @@ select * from personel_bilgi;
   SORU7: Personel tablosundan Istanbul veya Ankara’da calisanlarin id’lerini
  ve Personel_bilgi tablosundan 2 veya 3 cocugu olanlarin id lerini sorgulayiniz.
 ------------------------------------------------------------------------------*/
-
+select id ,tel ,cocuk_sayisi from personel where sehir in('Istanbul','Ankara')
+union
+select id ,tel ,cocuk_sayisi from personel_bilgi where cocuk_sayisi=2 or cocuk_sayisi=3;
 
 
 
