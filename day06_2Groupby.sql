@@ -55,7 +55,7 @@ select * from personel;
 
 select  ad, soyad ,ulke   from personel group by ulke ;
 
-
+select  *  from personel group by ulke ;
 -- SORU02: Ülkelere göre ortalama maaşları listeleyiniz
 select ulke, round(avg(maas)) from personel group by ulke;
 

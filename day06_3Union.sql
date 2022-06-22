@@ -45,7 +45,9 @@ SELECT * FROM personel;
   SORU1: Maasi 4000’den cok olan isci isimlerini + 5000 liradan fazla maas 
   alinan sehirleri gosteren sorguyu yaziniz
 ------------------------------------------------------------------------------*/
-
+select isim,  maas from personel where maas>4000
+union
+select sehir, maas from personel where maas>5000;
 
 
 
