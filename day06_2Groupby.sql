@@ -130,16 +130,29 @@ select *from manav;
 
 -- SORU10: kisi ismine ve urun adına göre satılan ürünlerin toplamını
 --  gruplandıran ve isime göre ters sırasıda listeyen sorguyu yazınız.
+select isim, urun_adi, sum(urun_miktari) as urun_toplami 
+from manav 
+group by isim,urun_adi 
+order by isim desc;
+ 
 
 
 -- SORU11: Kişi ismine ve ürün adına göre (gruplayarak) satılan ürünleri toplamını bulan
 -- ve bu toplam değeri 3 ve fazlası olan kayıtları, toplam ürün miktarına göre büyükten küçüğe listeleyiniz.
-
+select isim, urun_adi, sum(urun_miktari) as urun_toplami 
+from manav 
+group by isim,urun_adi 
+having urun_toplami>=3 
+order by urun_toplami desc;
 
 
 -- SORU12: Satılan urun_adi'na göre gruplayarak MAX ürün sayılarını sıralayarak listeleyen sorgu yazınız.
 -- NOT: Sorgu sadece MAX urun_miktari MIN urun_miktari na eşit olmayan kayıtları listelemelidir.
-
+select urun_adi, max(urun_miktari) as max_urun_miktari 
+from manav 
+group by urun_adi 
+having max_urun_miktari <> min(urun_miktari)
+order by max_urun_miktari ; 
 
 
 
@@ -160,11 +173,11 @@ select *from manav;
 ======================================================================================= */
 
 -- Satılan meyve türlerinin sayısını listeleyen sorgu
-
+select distinct urun_adi from manav;
 
 
 -- Satılan farklı meyve türlerinin sayısını listeleyen sorgu
-
+select   count(distinct urun_adi) from manav;
 
 -- satılan meyve + isimleri farklı olanları listeleyen sorgu
 
