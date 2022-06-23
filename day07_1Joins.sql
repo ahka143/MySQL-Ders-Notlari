@@ -98,7 +98,7 @@ on A.ders_id=B.ders_id;
 
 -- right join developerların derslerini sorgula
 
-select B.ders_id,B.ders_ismi,B.ders_saati from dqa_dersler as A
+select B.ders_id,B.ders_ismi,B.ders_saati from qa_dersler as A
 right join developer_dersler as B
 on A.ders_id=B.ders_id;
 
