@@ -105,6 +105,11 @@ on A.ders_id=B.ders_id;
 
 -- full join
 
-
-
+select A.ders_id,A.ders_ismi,A.ders_saati from qa_dersler as A
+left join developer_dersler as B
+on A.ders_id=B.ders_id
+union
+select B.ders_id,B.ders_ismi,B.ders_saati from qa_dersler as A
+right join developer_dersler as B
+on A.ders_id=B.ders_id;
 
