@@ -28,16 +28,17 @@ insert into actors values (3, 'Susan Davidson', 5);
 insert into actors values (4, 'Lee Pong', 6);
 insert into actors values (5, 'Bruce Lee', NULL);
 
-
+select * from films;
+select * from actors;
 
 -- SORU1: Tüm filmleri, film türlerini ve filimlerde oynayan aktörleri listeleyiniz.
 -- 1. YOL: LEFT JOIN
-
+select A.film_name,A.category,B.actor_name from films as A left join actors as B on A.film_id=B.film_id;
 
 
 
 -- 2. YOL RIGHT JOIN
-
+select A.film_name,A.category,B.actor_name from actors as B right join films  as A on A.film_id=B.film_id;
 
 
 
@@ -46,13 +47,13 @@ insert into actors values (5, 'Bruce Lee', NULL);
 -- SORU2: Tüm aktörleri ve filmlerini listeleyiniz.
 -- 1. YOL: LEFT JOIN
 
-
+select B.actor_name ,A.film_name from actors  as B left join films as A on A.film_id=B.film_id;
 
 
 
 -- 2. YOL RIGHT JOIN
 
-
+select B.actor_name ,A.film_name from films as A  right join actors  as B  on A.film_id=B.film_id;
 
 
 
