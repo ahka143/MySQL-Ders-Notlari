@@ -75,7 +75,9 @@ where qa_dersler.ders_id=developer_dersler.ders_id;
 -- qa_dersler = A
 -- developer_dersler : B
 -- sorguyu sadeleştirmek için
-
+select A.ders_id,A.ders_ismi,A.ders_saati from qa_dersler as A
+inner join developer_dersler as B
+on A.ders_id=B.ders_id;
 
 
 
@@ -87,16 +89,18 @@ where qa_dersler.ders_id=developer_dersler.ders_id;
 -- qa_dersler = A
 -- developer_dersler : B
 -- sorguyu sadeleştirmek için
-
-
-
+select A.ders_id,A.ders_ismi,A.ders_saati from qa_dersler as A
+left join developer_dersler as B
+on A.ders_id=B.ders_id;
 
 
 
 
 -- right join developerların derslerini sorgula
 
-
+select B.ders_id,B.ders_ismi,B.ders_saati from dqa_dersler as A
+right join developer_dersler as B
+on A.ders_id=B.ders_id;
 
 
 -- full join
