@@ -67,14 +67,24 @@ select * from siparisler;
 -- sirketler tablosu = A
 -- siparisler tablosu = B
 
-
+SELECT 
+    A.sirket_isim, B.siparis_id, B.siparis_tarihi
+FROM
+    sirketler AS A
+        INNER JOIN
+    siparisler AS B ON A.sirket_id = B.sirket_id;
 
 
 
 -- sirketler tablosu = A
 -- siparisler tablosu = B
 
-
+SELECT 
+    A.sirket_isim, B.siparis_id, B.siparis_tarihi
+FROM
+    siparisler AS B
+        INNER JOIN
+    sirketler AS A ON A.sirket_id = B.sirket_id;
 
 
     
@@ -96,7 +106,12 @@ select * from siparisler;
   SORU2: sirketler tablosundaki tum sirketleri ve bu sirketlere ait olan 
   siparis_id ve siparis_tarihleri listeleyen bir sorgu yaziniz.
 ------------------------------------------------------------------------------*/   
-
+SELECT 
+    A.sirket_isim, B.siparis_id, B.siparis_tarihi
+FROM
+    sirketler AS A
+        LEFT JOIN
+    siparisler AS B ON A.sirket_id = B.sirket_id;
 
 
           
@@ -119,7 +134,12 @@ select * from siparisler;
 ------------------------------------------------------------------------------*/   
 -- sirketler tablosu = A
 -- siparisler tablosu = B
-
+SELECT 
+   B.siparis_id, B.siparis_tarihi, A.sirket_isim
+FROM
+    sirketler AS A
+        RIGHT JOIN
+    siparisler AS B ON A.sirket_id = B.sirket_id; 
 
 
 
@@ -149,8 +169,19 @@ select * from siparisler;
 ------------------------------------------------------------------------------*/ 
 
 
-
-
+SELECT 
+    A.sirket_isim, B.siparis_id, B.siparis_tarihi
+FROM
+    sirketler AS A
+        LEFT JOIN
+    siparisler AS B ON A.sirket_id = B.sirket_id
+    union
+SELECT 
+   B.siparis_id, B.siparis_tarihi, A.sirket_isim
+FROM
+    sirketler AS A
+        RIGHT JOIN
+    siparisler AS B ON A.sirket_id = B.sirket_id;
 
 
 
