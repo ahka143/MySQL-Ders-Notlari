@@ -286,3 +286,42 @@ FROM
     personel AS P ON B.bolum_id = P.bolum_id
 ORDER BY B.bolum_isim DESC , P.maas;
 
+
+
+/* -----------------------------------------------------------------------------
+  SORU4: SATIS ve MUDURLUK bolumlerinde calisan personelin maaslari 2000'den 
+  buyuk olanlarinin isim,bolum ve maas bilgilerini bolume ve isme gore
+  siralayarak listeleyiniz.
+------------------------------------------------------------------------------*/   
+-- P: personel tablo
+-- B: bolumler tablo
+
+SELECT 
+    P.personel_isim, B.bolum_isim, P.maas
+FROM
+    bolumler AS B
+        RIGHT JOIN
+    personel AS P ON B.bolum_id = P.bolum_id
+WHERE
+    B.bolum_id IN (20 , 30) AND maas > 2000
+ORDER BY bolum_isim , personel_isim;
+
+
+/* -----------------------------------------------------------------------------
+  SORU5: MUDUR'u Harun veya Emine olan personelin bolumlerini,isimlerini,  
+  maaslarini ve ayrica MUDUR isimlerini 
+  (emine kimin müdürüyse onun satirinda yazsin) 
+------------------------------------------------------------------------------*/   
+SELECT 
+    B.bolum_isim,
+    P.personel_isim,
+    P.maas,(select personel_isim from personel where P.mudur_id=personel_id ) as mudur_adi
+  
+FROM
+    personel AS P
+        LEFT JOIN
+    bolumler AS B ON P.bolum_id = B.bolum_id
+WHERE
+    mudur_id IN (1333 , 1222);
+
+
