@@ -53,7 +53,9 @@ select * from developer_dersler;
 
 -- ortak dersler
 
-
+select qa_dersler.ders_id,qa_dersler.ders_ismi, qa_dersler.ders_saati 
+from qa_dersler,developer_dersler 
+where qa_dersler.ders_id=developer_dersler.ders_id;
 
 
 /*=============================== INNER JOIN  ==================================
