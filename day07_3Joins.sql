@@ -177,7 +177,7 @@ FROM
     siparisler AS B ON A.sirket_id = B.sirket_id
     union
 SELECT 
-   B.siparis_id, B.siparis_tarihi, A.sirket_isim
+ A.sirket_isim , B.siparis_id, B.siparis_tarihi
 FROM
     sirketler AS A
         RIGHT JOIN
@@ -241,7 +241,14 @@ FROM
 ------------------------------------------------------------------------------*/ 
 -- P: personel tablo
 -- B: bolumler tablo
-
+SELECT 
+    B.bolum_isim, P.personel_isim
+FROM
+    bolumler AS B
+        LEFT JOIN
+    personel AS P ON B.bolum_id = P.bolum_id
+WHERE
+    B.bolum_id IN (30 , 10) order by B.bolum_isim, P.personel_isim;
 
 
 /* -----------------------------------------------------------------------------
@@ -252,7 +259,14 @@ FROM
 
 -- P: personel tablo
 -- B: bolumler tablo
-
+SELECT 
+    B.bolum_isim, P.personel_isim
+FROM
+    bolumler AS B
+        LEFT JOIN
+    personel AS P ON B.bolum_id = P.bolum_id
+WHERE
+    B.bolum_id IN (30 , 40,50) order by P.personel_isim;
 
 
 
@@ -264,24 +278,11 @@ FROM
 -- P: personel tablo
 -- B: bolumler tablo
 
-
-
-/* -----------------------------------------------------------------------------
-  SORU4: SATIS ve MUDURLUK bolumlerinde calisan personelin maaslari 2000'den 
-  buyuk olanlarinin isim,bolum ve maas bilgilerini bolume ve isme gore
-  siralayarak listeleyiniz.
-------------------------------------------------------------------------------*/   
--- P: personel tablo
--- B: bolumler tablo
-
-
-
-
-
-/* -----------------------------------------------------------------------------
-  SORU5: MUDUR'u Harun veya Emine olan personelin bolumlerini,isimlerini,  
-  maaslarini ve ayrica MUDUR isimlerini 
-  (emine kimin müdürüyse onun satirinda yazsin) 
-------------------------------------------------------------------------------*/   
-
+SELECT 
+   B.bolum_isim, P.personel_isim,  P.maas
+FROM
+    bolumler AS B
+        LEFT JOIN
+    personel AS P ON B.bolum_id = P.bolum_id
+ORDER BY B.bolum_isim DESC , P.maas;
 

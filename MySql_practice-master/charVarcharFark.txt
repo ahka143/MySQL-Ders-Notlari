@@ -1,0 +1,10 @@
+SORU: CHAR ile VARCHAR farkI nedir?
+CEVAP:  
+CHAR - Sabit uzunlukta karakter saklar. Yani CHAR(50) ifadesi MAX 50 karakter saklayabilir.
+ Ancak içerisine atanan veriyi bakılmaksızın bellekte sabit olarak hep 50 karakterlik yer kaplar.
+VARCHAR-  Bellekte değişken uzunlukta yer kaplar.
+ Varchar(50) ifadesi MAX 50 karakter saklayabilir ancak  30 karakterlik bir atama yapıldığında bellekte 30 karakterlik yer kaplar.
+
+SORU: varchar ile varchar2 arasındaki farklar nelerdir ?
+CEVAP: varchar2, varchar ’ın güncellenmiş versiyonudur. 
+Varchar’a göre 2 kat daha fazla (4000) karakter saklayabilir.
