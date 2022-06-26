@@ -28,6 +28,7 @@ select maas from calisanlar order by maas desc limit 1,1;
 select maas from calisanlar order by maas  limit 1,1;
 
 -- 5) En yüksek 3. maaş
-select maas from calisanlar order by maas desc limit 1,1;
+select maas from calisanlar order by maas desc limit 2,1;
 
 -- 6) En düşük 3. maaş
+select maas from calisanlar order by maas  limit 2,1;
