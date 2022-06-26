@@ -22,12 +22,12 @@ select max(maas) as max_maas from calisanlar limit 1;
 select min(maas) as Min_maas from calisanlar limit 1;
 
 -- 3) En yüksek 2. maaş
-
+select maas from calisanlar order by maas desc limit 1,1;
 
 -- 4) En düşük 2. maaş
-
+select maas from calisanlar order by maas  limit 1,1;
 
 -- 5) En yüksek 3. maaş
-
+select maas from calisanlar order by maas desc limit 1,1;
 
 -- 6) En düşük 3. maaş
