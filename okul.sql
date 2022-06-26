@@ -67,7 +67,7 @@ insert into notlar values(115, 'Serkan Bayram', 55, 65, 75, 85);
 insert into notlar values(116, 'Hakan Bacak', 60, 70, 80, 90);
 insert into notlar values(117, 'Zafer Yanak', 65, 75, 85, 95);
 insert into notlar values(118, 'Birol Kara', 70, 80, 90, 100);
-insert into notlar values(119, 'Ayten Tan', 65, 75, 85, 95);
+insert into notlbolumlerar values(119, 'Ayten Tan', 65, 75, 85, 95);
 
 select * from notlar;
 
