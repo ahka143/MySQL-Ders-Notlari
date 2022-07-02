@@ -1,5 +1,8 @@
 -- kutuphane database olusturma
-
+​
+create database kutuphane;
+use kutuphane;
+​
 CREATE TABLE ogrenci
 (
 ogrno int primary key,
@@ -11,12 +14,13 @@ sinif CHAR(3),
 puan int
 );
 ​
+​
 create table siniflar
 (
 id int not null,
 ad char(3)
 );
-
+​
 INSERT INTO siniflar VALUES (1, '10A ');
 INSERT INTO siniflar VALUES (2, '10B ');
 INSERT INTO siniflar VALUES (3, '10C ');
@@ -41,8 +45,10 @@ INSERT INTO siniflar VALUES (21, '11F ');
 INSERT INTO siniflar VALUES (22, '12F ');
 INSERT INTO siniflar VALUES (23, '10F ');
 INSERT INTO siniflar VALUES (24, '9F  ');
-
-
+​
+select * from siniflar;
+​
+​
 create table islem
 (
 islemno int not null,
@@ -52,7 +58,7 @@ atarih DATE,
 vtarih DATE,
 CONSTRAINT ogrno FOREIGN KEY(ogrno) REFERENCES ogrenci(ogrno)-- baglanti kodu
 );
-
+​
 create table kitap
 (
 kitapno int not null,
@@ -162,16 +168,17 @@ INSERT INTO kitap VALUES (97, 'Falaka', 376, 31, 78, 6);
 INSERT INTO kitap VALUES (98, 'Türkçenin sırları', 372, 35, 128, 11);
 INSERT INTO kitap VALUES (99, 'Edebiyat yazıları', 106, 36, 135, 10);
 INSERT INTO kitap VALUES (100, 'Figan', 281, 28, 104, 9);
-
+​
 select * from kitap;
-
+​
 create table yazar
 (
 yazarno int not null,
 ad varchar(50) null,
 soyad varchar(50) null
+​
 );
-
+​
 INSERT INTO yazar VALUES (4, 'Charles', 'Dickens');
 INSERT INTO yazar VALUES (6, 'Sami Paşazade',' Sezai');
 INSERT INTO yazar VALUES (7, 'Turgut ', 'Özakman');
@@ -236,50 +243,54 @@ INSERT INTO yazar VALUES (96, 'Moliere', '');
 INSERT INTO yazar VALUES (97, 'Aziz ', 'Nesin');
 INSERT INTO yazar VALUES (98, 'Canan', 'Tan');
 INSERT INTO yazar VALUES (99, 'Hekimoğlu', 'İsmail');
-INSERT INTO yazar VALUES (100, 'Rıfat', 'Ilgaz');
-
+INSERT INTO yazar VALUES (102, 'Rıfat', 'Ilgaz');
+​
 select * from yazar;
-
+​
 create table tur
 (
 turno int not null,
 ad varchar(20)
 );
-
+​
 -- SORU01: sayfa sayisi  200'den büyük olan kitaplari bilgileri listele
-
--- SORU02: yazar no 33 olan kitabin sayisi yazdirin
-
+select kitapno, ad from kitap where sayfasayisi>200;
+​
+-- SORU02: yazar no 45 olan kitabin sayisi yazdirin
+select ad,sayi,sayfasayisi from kitap where yazarno=45;
+​
 -- SORU03: yazar no su 4 ile 9 arasinda olan yazar isimleriniz yazdirin 
-
--- soru charles dickens ile turgut aytmatov arasindaki yazarlari listeleyin
-
+select yazarno,ad,soyad from yazar where yazarno>=4 and yazarno<=9;-- and yerine && de kullanilabilir
+-- or yerine | veya || yazilabilri
+select yazarno,ad,soyad from yazar where  yazarno between 4 and 9; -- between ile ayni sorunu n cozumu
+​
+-- soru charles dickens ile cengiz aytmatov arasindaki yazarlari listeleyin
+select yazarno,ad,soyad from yazar where ad between 'charles' and 'turgut'; -- bu sartimizda c ve t(t dahil degil) harfleri arasindaki yazar isimleriniz yazdirir
+​
 -- sayfa sayisi 200 den buyuk kitap ismi 'beyaz dis' olan kitabin ismi puanini getir
-
--- kitap no su 98 54 21 76 olan kitapno ve isimlerini listlele
-
-
+select ad ,puan from kitap where sayfasayisi>200 and ad='beyaz dis';
+​
+-- kitap no su 98 54 21 76 olan kitapno ve isimlerini ylistlele
+select kitapno,ad from kitap where kitapno in (98,54,21,76);
+​
 -- SORU09: İsmi A harfi ile başlayan yazarlari listele
-
--- SORU11: İsminin 2. harfi E olan yazarlari listeleyin
-
-
+select ad from yazar where ad like 'a%';-- a ile baslayanlar (a ile bsalasin nasil devam ediyorsa etsin
+select ad from yazar where ad like '%a';-- a ile bitenler 
+​
+-- SORU11: İsminin 2. harfi E olan personeli listeleyin
+select ad from yazar where ad like '_e%';
+​
 -- SORU12: İsminin 2. harfi E olup diğer harflerinde Y olan yazar
-
-
--- SORU13: isim ilk harfi r ile baslasin ikini harfi ne olursa olsun icinde k harfi bulunan isimleri listele
-
+select ad from yazar where ad like '_e%y%'; -- ilk harf bos 2. harf e iki % arasi kelimenin tamamindaki harfi verir
+​
+-- soru isim ilk harfi r ile baslasin ikini hardi ne olursa olssun icinde k harfi bulunan isimleri listele
+select ad from yazar where ad like 'r%k%'; -- _ bu harfi atla demek
+​
 -- soru isminde a harfi olmayan 
-
+select ad from yazar where ad not like '%a%'; 
+​
 -- SORU14: kitab adi 6 haneli olan kitablari listeleyin
-
+select ad from kitap where ad like '______';
+​
 -- SORU15: 1. harfi A ve 8. harfi A olan kitap listeleyin
-
-
-
-
-
-
-
-
-
+select ad from kitap where ad like 'a______a%';

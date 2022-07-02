@@ -6,7 +6,7 @@ turno int not null,
 sayfasayisi int not null DEFAULT 0
 );
 
-
+DROP TABLE kitap;
 
 INSERT INTO kitap VALUES (1,26,3,368);
 INSERT INTO kitap VALUES (2,6,1,220);
@@ -29,7 +29,7 @@ create table islemler
 turno int PRIMARY KEY,
 kitap_turu varchar(10) NOT NULL
 );
-
+DROP TABLE islemler;
 
 INSERT INTO islemler VALUES (1,'Dram');
 INSERT INTO islemler VALUES (2,'Komedi');
@@ -47,7 +47,7 @@ ogrsoyad VARCHAR(10) NOT NULL,
 cinsiyet VARCHAR(1) NOT NULL,
 sinif VARCHAR(3) DEFAULT''
 );
-
+DROP TABLE ogrenci;
 INSERT INTO ogrenci VALUES (1,'ahmet','cansever','e','10a');
 INSERT INTO ogrenci VALUES (2,'niyazi','sevinc','e','11b');
 INSERT INTO ogrenci VALUES (3,'ismail ','sevinc','e','10b');
@@ -68,17 +68,26 @@ INSERT INTO ogrenci VALUES (17,'sema','sekmen','k','10b');
 
 
 
--- Task 1: Hangi isimden kaç tane olduğunu bulun.
+-- ------Örnek 1: Hangi isimden kaç tane olduğunu bulun.
+SELECT ograd,count(*) from ogrenci
+group by ograd;
+-- ------ Örnek 2: Sınıflardaki öğrenci sayısını bulun
+SELECT sinif, count(*) from ogrenci
+group by sinif;
+-- ------ Örnek 3: Her sınıftaki erkek ve kız öğrenci sayısını bulun.(cinsiyet ve sinifa göre grupla)
+SELECT sinif, cinsiyet, Count(*) as 'sayi' FROM ogrenci
+group by cinsiyet, sinif;
+-- ------ Örnek 4: Her türden kaç tane kitap olduğunu listeleyiniz.
+SELECT turno,Count(idno) FROM kitap
+group by turno;
+-- ------ Örnek 5: Her türdeki en fazla sayfa sayısı olan kitapları listeleyiniz.
+SELECT turno, MAX(sayfasayisi) FROM kitap
+group by turno;
 
--- Task 2: Sınıflardaki öğrenci sayısını bulun
-
--- Task 3: Her sınıftaki erkek ve kız öğrenci sayısını bulun.(cinsiyet ve sinifa göre grupla)
-
--- Task 4: Her türden kaç tane kitap olduğunu listeleyiniz.
-
--- Task 5: Her türdeki en fazla sayfa sayısı olan kitapları listeleyiniz.
-
--- Task 6: Her türdeki en az sayfa sayısı olan kitapları listeleyiniz.
-
--- Task 7***: Her türden kaç tane kitap olduğunu listeleyiniz.(Tür isimleri de olsun)
-
+-------- Örnek 6: Her türdeki en az sayfa sayısı olan kitapları listeleyiniz.
+SELECT turno, MIN(sayfasayisi) FROM kitap
+group by turno;
+-------- Örnek 7***: Her türden kaç tane kitap olduğunu listeleyiniz.(Tür isimleri de olsun)
+select kitap_turu, (select count(turno) from kitap where islemler.turno=kitap.turno) as adet_sayisi
+from islemler
+group by kitap_turu;
