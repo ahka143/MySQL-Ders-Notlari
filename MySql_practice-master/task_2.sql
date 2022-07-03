@@ -14,6 +14,7 @@ calisanlar tablosu --> id, isim, maas
 
  create ediniz
 */
+use mysql_practice;
 
 create table calisanlar(
 id char(4),
@@ -57,11 +58,15 @@ where maas<(select avg(maas) from (select maas from calisanlar) as x);
  -- Query05: calisanlar' ın  isim ve toplam_gelir'lerini gösteren bir sorgu yazınız. 
  -- toplam_gelir = calisanlar.maas + aileler.ek_gelir 
  
-select isim, aileler.ek_gelir+calisanlar.maas from calisanlar,aileler where aileler.id=calisanlar.id;
-
-
+select isim,maas+ek_gelir from aileler,calisanlar where aileler.id=calisanlar.id;
 
 
  -- Query06:) eğer bir ailenin kişi başı geliri 2000 TL den daha az ise o çalışanın  maaşına ek %10 aile yardım zammı yapınız. 
  -- kisi_basi_gelir = toplam_gelir / cocuk_sayisi + 2 (anne ve baba)
+
+ update calisanlar set maas=maas*1.1
+ where (select (maas+ek_gelir)/(cocuk_sayisi+2) from aileler
+ where calisanlar.id=aileler.id)<2000;
+ 
+
  
