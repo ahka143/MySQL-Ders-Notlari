@@ -37,14 +37,14 @@ select job_id,first_name, count(*)as calisan_sayisi from employees group by JOB_
 
 -- SORU 1: job_ id lere göre her job id nin toplam maaşını görüntüle. Maaşların yazacağı kısmı ‘Total’ olarak nitelendir. Job id olarak gruplandır. 
 
-
+select job_id, sum(salary) as total from employees group by JOB_ID; 
 -- SORU2:  Bir manager_İd den kac adet oldugunu bul. Kaç kez kullanılmış ?Gruplandırma olarak ta manager id kullan.
 
 
 -- SORU3:  Bir manager_id den kaç adet oldugunu bul. Kaç kez kullanılmış ? Ama 100'den fazla olanları manager_id olarak grupla. 
-
+select manager_id , count(*) from employees group by MANAGER_ID having  MANAGER_ID>100 ;
 
 -- SORU4 :   first_name ve salary'lerin toplamını yazdırın.
 -- 2000 den büyük salary leri first_name ' e göre gruplandırın ve bu grupları first_name'in baş harfi D olanlar ile yapın.
-
+select first_name , sum(salary) as toplam_maas from employees group by FIRST_NAME having FIRST_NAME like 'D%'; 
 
