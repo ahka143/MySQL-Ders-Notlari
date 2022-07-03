@@ -49,7 +49,14 @@ insert into hastalar values('12345678901','Ali Can','Gizli Seker');
   insert into Hasta_kayitlar values(2222,'NONAME',null,null,null);
   insert into Hasta_kayitlar values(3333,'NONAME',null,null,null);
   
-  update Hasta_kayitlar set e 
+  update hasta_kayitlar 
+  set hast_isim='Salvador Dali' , hastane_adi='Jhon Hopkins' 
+  , bolum_adi='Noroloji' , teshis='Parkinson' 
+  , kimlik_no='99991111222' where kimlik_no='3333';
+  
+  
+  
+
   
     
  
