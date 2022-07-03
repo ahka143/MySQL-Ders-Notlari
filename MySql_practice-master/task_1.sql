@@ -61,6 +61,13 @@ insert into hastalar values('12345678901','Ali Can','Gizli Seker');
   , teshis=(select teshis from hastalar where isim='Ali Can')
   , kimlik_no=(select kimlik_no from hastalar where isim ='Ali Can') where kimlik_no='1111';
   
+      update hasta_kayitlar 
+  set hast_isim=(select isim from hastalar where isim='Ayse Yilmaz')
+  , hastane_adi=(select isim from hastaneler where id='H103')
+  , bolum_adi=(select bolum_adi from bolumler where bolum_id='KBB') 
+  , teshis=(select teshis from hastalar where isim='Tom Hanks')
+  , kimlik_no=(select kimlik_no from hastalar where isim ='Steve Jobs') where kimlik_no='2222';
+  
   
 
   
