@@ -54,6 +54,12 @@ insert into hastalar values('12345678901','Ali Can','Gizli Seker');
   , bolum_adi='Noroloji' , teshis='Parkinson' 
   , kimlik_no='99991111222' where kimlik_no='3333';
   
+    update hasta_kayitlar 
+  set hast_isim=(select isim from hastalar where kimlik_no='12345678901')
+  , hastane_adi=(select isim from hastaneler where id='H104')
+  , bolum_adi=(select bolum_adi from bolumler where bolum_id='DHL') 
+  , teshis=(select teshis from hastalar where isim='Ali Can')
+  , kimlik_no=(select kimlik_no from hastalar where isim ='Ali Can') where kimlik_no='1111';
   
   
 
