@@ -42,7 +42,10 @@ insert into aileler values('1004', 3, 2400);
 update calisanlar set maas=maas*1.2 where isim='Veli Han';
 
  -- Query03: Maaşı ortalamanın altında olanlara %20 zam yapınız.
-
+ select isim from calisanlar where maas<(select avg(maas) from calisanlar) ;
+ select avg(maas) from calisanlar;
+update calisanlar set maas=maas*1.2 
+where maas<(select avg(maas) from (select maas from calisanlar) as x);
  
      
  -- Query04: calisanların isim ve cocuk_sayisi'ni  sorguyu yazınız.
