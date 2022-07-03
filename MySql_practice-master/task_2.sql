@@ -39,7 +39,7 @@ insert into aileler values('1004', 3, 2400);
 
 
  -- Query02: Veli Han'ın maaşına %20 zam yapınız.
-
+update calisanlar set maas=maas*1.2 where isim='Veli Han';
 
  -- Query03: Maaşı ortalamanın altında olanlara %20 zam yapınız.
 
