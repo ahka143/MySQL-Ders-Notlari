@@ -50,6 +50,8 @@ where maas<(select avg(maas) from (select maas from calisanlar) as x);
      
  -- Query04: calisanların isim ve cocuk_sayisi'ni  sorguyu yazınız.
            -- 1. yol
+           select isim,cocuk_sayisi from calisanlar,aileler where aileler.id=calisanlar.id;
+           
     
             
  -- Query05: calisanlar' ın  isim ve toplam_gelir'lerini gösteren bir sorgu yazınız. 
