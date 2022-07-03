@@ -39,37 +39,23 @@ insert into aileler values('1004', 3, 2400);
 
 
  -- Query02: Veli Han'ın maaşına %20 zam yapınız.
- UPDATE calisanlar -- calisanlar tablosu update edildi
- set -- set komutu calisti
- maas=maas*1.2 -- maas columdaki data 1.2 ile çarpilraka set edildi
- where isim='Veli Han'; -- set edilecek columb raw satr değeri tanimlandi
+
 
  -- Query03: Maaşı ortalamanın altında olanlara %20 zam yapınız.
- UPDATE calisanlar -- calisanlar tablosu update edildi
- set -- set komutu calisti
- maas=maas*1.2 -- maas columdaki data 1.2 ile çarpilraka set edildi
- where maas<(select avg(maas) from calisanlar as ebikgabik);
+
  
      
  -- Query04: calisanların isim ve cocuk_sayisi'ni  sorguyu yazınız.
            -- 1. yol
-        SELECT isim, cocuk_sayisi FROM calisanlar,aileler
-        where calisanlar.id=aileler.id;
-            -- 2. yol 
-            select isim,(select cocuk_sayisi from aileler where calisanlar.id=aileler.id) as ebkgabk from calisanlar;
+    
             
  -- Query05: calisanlar' ın  isim ve toplam_gelir'lerini gösteren bir sorgu yazınız. 
  -- toplam_gelir = calisanlar.maas + aileler.ek_gelir 
- SELECT id, isim ,
- (select maas+ek_gelir from aileler where calisanlar.id=aileler.id) as toplam_gelir 
- from calisanlar;
+
  
 
 
 
  -- Query06:) eğer bir ailenin kişi başı geliri 2000 TL den daha az ise o çalışanın  maaşına ek %10 aile yardım zammı yapınız. 
  -- kisi_basi_gelir = toplam_gelir / cocuk_sayisi + 2 (anne ve baba)
-update calisanlar
-set maas=maas*1.1
-where (select (maas+ek_gelir)/(cocuk_sayisi+2) from aileler
-where calisanlar.id=aileler.id)<5000;  
+ 
