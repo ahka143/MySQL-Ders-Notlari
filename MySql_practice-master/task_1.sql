@@ -29,6 +29,27 @@ insert into hastalar values('12345678901','Ali Can','Gizli Seker');
   bolum_adi char(50)
   );
   
+  insert into bolumler values('DHL','Dahiliye');
+  insert into bolumler values('KBB','Kulak-Burun-Bogaz');
+  insert into bolumler values('NRJ','Noroloji');
+  insert into bolumler values('GAST','Gastoroloji');
+  insert into bolumler values('KARD','Kardioloji');
+  insert into bolumler values('PSK','Psikiyatri');
+  insert into bolumler values('GOZ','Goz Hastaliklari');
+  
+     CREATE TABLE if not exists Hasta_kayitlar(
+  kimlik_no char(11) primary key,
+  hast_isim char(50),
+  hastane_adi char(20),
+  bolum_adi char(20),
+  teshis char(20)
+  );
+  
+  insert into Hasta_kayitlar values(1111,'NONAME',null,null,null);
+  insert into Hasta_kayitlar values(2222,'NONAME',null,null,null);
+  insert into Hasta_kayitlar values(3333,'NONAME',null,null,null);
+  
+  update Hasta_kayitlar set e 
   
     
  
