@@ -56,8 +56,9 @@ where maas<(select avg(maas) from (select maas from calisanlar) as x);
             
  -- Query05: calisanlar' ın  isim ve toplam_gelir'lerini gösteren bir sorgu yazınız. 
  -- toplam_gelir = calisanlar.maas + aileler.ek_gelir 
-
  
+select isim, aileler.ek_gelir+calisanlar.maas from calisanlar,aileler where aileler.id=calisanlar.id;
+
 
 
 
