@@ -82,5 +82,7 @@ select turno,count(turno) as kitap_sayisi from kitap group by turno;
 select turno,max(sayfasayisi) from kitap group by turno;
 
 -------- Örnek 6: Her türdeki en az sayfa sayısı olan kitapları listeleyiniz.
-
+select turno,min(sayfasayisi) from kitap group by turno;
 -------- Örnek 7***: Her türden kaç tane kitap olduğunu listeleyiniz.(Tür isimleri de olsun)
+
+select kitap_turu,count(kitap.turno) as kitap_sayisi from kitap,islemler where islemler.turno=kitap.turno group by kitap_turu  ;
