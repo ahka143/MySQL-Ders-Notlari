@@ -45,7 +45,9 @@ where worker_salary<(select avg(worker_salary) from (select worker_salary from w
 
 
 -- Maaşın ortalama maaştan az olması durumunda maaşları ortalama maaşa eşit artırın
-
+update worker 
+set worker_salary=worker_salary+(select avg(worker_salary) from (select worker_salary from worker) as x)
+ where worker_salary<(select avg(worker_salary) from (select worker_salary from worker) as x);
 
 
 CREATE TABLE people 
