@@ -46,5 +46,5 @@ select manager_id , count(*) from employees group by MANAGER_ID having  MANAGER_
 
 -- SORU4 :   first_name ve salary'lerin toplamını yazdırın.
 -- 2000 den büyük salary leri first_name ' e göre gruplandırın ve bu grupları first_name'in baş harfi D olanlar ile yapın.
-select first_name , sum(salary) as toplam_maas from employees group by FIRST_NAME having FIRST_NAME like 'D%'; 
+select first_name , sum(salary) as toplam_maas from employees where salary>2000 group by FIRST_NAME having FIRST_NAME like 'D%'; 
 

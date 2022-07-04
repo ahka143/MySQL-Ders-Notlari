@@ -80,4 +80,6 @@ update people set address='Adres daha sonra eklenecek' where address is null;
 
 -- people tablosunda 'Daha sonra eklenecek' tüm boş değerleri değiştirin -- COALESCE ALANLARA GİDER VE BOŞ DEĞERLERİ İKİNCİ PARAMETREYE DEĞİŞTİRİN
 
-
+update people 
+set name=coalesce(name,'Daha sonra eklenecek'),
+address=coalesce(address,'Daha sonra eklenecek');
