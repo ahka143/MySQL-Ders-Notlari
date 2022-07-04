@@ -73,7 +73,7 @@ select *  from kitap;
 -- ------Örnek 1: Hangi isimden kaç tane olduğunu bulun.
 select ograd,count(ograd) as oenci_adlari from ogrenci group by ograd;
 -- ------ Örnek 2: Sınıflardaki öğrenci sayısını bulun
-
+select sinif ,count(sinif) from ogrenci group by sinif;
 -- ------ Örnek 3: Her sınıftaki erkek ve kız öğrenci sayısını bulun.(cinsiyet ve sinifa göre grupla)
 
 -- ------ Örnek 4: Her türden kaç tane kitap olduğunu listeleyiniz.
