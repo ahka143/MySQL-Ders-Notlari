@@ -77,7 +77,7 @@ select sinif ,count(sinif) from ogrenci group by sinif;
 -- ------ Örnek 3: Her sınıftaki erkek ve kız öğrenci sayısını bulun.(cinsiyet ve sinifa göre grupla)
 select sinif ,cinsiyet,count(cinsiyet) from ogrenci group by sinif,cinsiyet;
 -- ------ Örnek 4: Her türden kaç tane kitap olduğunu listeleyiniz.
-
+select turno,count(turno) as kitap_sayisi from kitap group by turno;
 -- ------ Örnek 5: Her türdeki en fazla sayfa sayısı olan kitapları listeleyiniz.
 
 
