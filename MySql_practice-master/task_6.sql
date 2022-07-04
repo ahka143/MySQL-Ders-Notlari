@@ -76,7 +76,7 @@ SELECT * FROM PEOPLE ;
 update people set name='ad daha sonra eklenecek' where name is null;
 
 -- Boş adresleri 'Adres daha sonra eklenecek' olarak değiştirin
-
+update people set address='Adres daha sonra eklenecek' where address is null;
 
 -- people tablosunda 'Daha sonra eklenecek' tüm boş değerleri değiştirin -- COALESCE ALANLARA GİDER VE BOŞ DEĞERLERİ İKİNCİ PARAMETREYE DEĞİŞTİRİN
 
