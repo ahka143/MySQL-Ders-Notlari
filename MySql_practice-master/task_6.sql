@@ -27,15 +27,21 @@ SELECT * FROM WORKER ;
 
 -- Veli Han'ın maaşını en yüksek maaştan yüzde 20 daha azına artırin
 update worker 
-set worker_salary=(select max(worker_salary)  from (select worker_salary from worker) as x) *0.8 where worker_name='Veli Han';
-select max(worker_salary) from worker;
+set worker_salary=(select max(worker_salary)  
+from (select worker_salary from worker) as x) *0.8 
+where worker_name='Veli Han';
+
 
 -- Ali Can'ın maaşını en düşük maaştan yüzde 30 daha fazla düşürun
-
+update worker 
+set worker_salary=(select min(worker_salary) from (select worker_salary from worker) as x)*1.3 
+where worker_name='oli can';
 
 
 -- Maaş ortalama maaştan düşükse maaşları 1000 artırın
-
+update worker 
+set worker_salary=worker_salary+1000
+where worker_salary<(select avg(worker_salary) from (select worker_salary from worker) as x);
 
 
 -- Maaşın ortalama maaştan az olması durumunda maaşları ortalama maaşa eşit artırın
