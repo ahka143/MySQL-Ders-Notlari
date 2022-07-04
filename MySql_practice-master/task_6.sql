@@ -73,7 +73,7 @@ SELECT * FROM PEOPLE ;
 
 
 -- Boş adları "ad daha sonra eklenecek" olarak değiştirin
-
+update people set name='ad daha sonra eklenecek' where name is null;
 
 -- Boş adresleri 'Adres daha sonra eklenecek' olarak değiştirin
 
